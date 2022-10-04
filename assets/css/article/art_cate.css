@@ -1,0 +1,33 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#form-add,
+#form-edit {
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+var id=$(this).attr('data-id') // 发起请求获取对应分类的数据
+
+$.ajax({
+
+    method: 'GET',
+    url: '/my/article/cates/' + id,
+    success: function(res) {
+        form.val('form-edit', res.data)
+    }
+})
